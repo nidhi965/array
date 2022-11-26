@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+       vector<vector<int>>res(n,vector<int>(n,0));
+        int rs=0;
+        int re=res.size()-1;
+        int cs=0;
+        int ce=res[0].size()-1;
+        int ele=1;
+        while(rs<=re && cs<=ce ){
+            for(int i=cs;i<=ce;i++)
+                res[rs][i]=ele++;
+            rs++;
+            
+             for(int i=rs;i<=re;i++)
+          res[i][ce]=ele++;
+            ce--;
+            if(rs>re || cs>ce)break;
+             for(int i=ce;i>=cs;i--)
+                res[re][i]=ele++;
+            re--;
+            
+             for(int i=re;i>=rs;i--)
+           res[i][cs]=ele++;
+            cs++;
+            
+        }
+        return res;
+    }
+};
