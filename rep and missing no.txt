@@ -1,0 +1,24 @@
+int *findTwoElement(int *arr, int n) {
+        // code here
+        int *ans=new int[2];
+        int rep=0;
+        int miss=0;
+        for(int i=0;i<n;i++){
+            int idx=abs(arr[i])-1;
+            if(arr[idx]<0){
+                ans[0]=idx+1;
+              
+            }
+            else
+            arr[idx]=-arr[idx];
+            
+        }
+        for(int i=0;i<n;i++){
+            if(arr[i]>0){
+           ans[1]=i+1;
+            break;
+            }
+        }
+        
+        
+        return ans;
